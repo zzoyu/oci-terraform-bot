@@ -1,0 +1,7 @@
+# OCI Configuration
+# 실제 값으로 교체하세요
+compartment_ocid = "ocid1.tenancy.oc1..your_compartment_ocid_here"
+tenancy_ocid     = "ocid1.tenancy.oc1..your_tenancy_ocid_here"
+region           = "ap-your_region-1"
+user_ocid        = "ocid1.user.oc1..your_user_ocid_here"
+fingerprint      = "your_fingerprint_here"

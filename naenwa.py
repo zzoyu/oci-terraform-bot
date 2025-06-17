@@ -21,6 +21,7 @@ DISCORD_WEBHOOK_URL = os.getenv(
 DISCORD_USERNAME = os.getenv(
     "DISCORD_USERNAME"
 )  # Default username for Discord bot
+YOUR_NAME = os.getenv("YOUR_NAME")
 
 def run_terraform_apply():
     try:
@@ -86,12 +87,11 @@ def main():
                 send_discord_notification(
                     DISCORD_WEBHOOK_URL,
                     message=f"# Terraform Apply 성공! 🎉\n## 총 {attempt} 회 시도 끝에 생성했습니다! Tlqkf",
-
-                    embed={
+                    embed=[{
                         "title": "Terraform Apply Output",
                         "description": "\n".join(condensed_output),
                         "color": 3066993,
-                    },
+                    }],
                 )
                 break
             elif is_retryable_error(output):
@@ -112,7 +112,7 @@ def main():
         print(f"💀 An unexpected error occurred: {e}")
         send_discord_notification(
             webhook_url=DISCORD_WEBHOOK_URL,
-            message="# 뭔가 오류났다 진건아!! 💀",
+            message=f"# 뭔가 오류났다 {YOUR_NAME}아!! 💀",
             embed=[
                 {
                     "title": "Terraform Apply Output",
